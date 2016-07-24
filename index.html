@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="d3compilation">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Compilation</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles.css" >
+  </head>
+  <body ng-controller="mainCtrl">
+    <h1>D3 Compilation</h1>
+    <hr>
+    <h3>These are some input boxes. Go ahead and type in a bunch of numbers.</h3>
+    <div class="inputcontainer">
+      <input type="text" ng-model="arr[0]"><input type="text" ng-model="arr[1]"><input type="text" ng-model="arr[2]"><input type="text" ng-model="arr[3]"><input type="text" ng-model="arr[4]"><input type="text" ng-model="arr[5]"><input type="text" ng-model="arr[6]"><input type="text" ng-model="arr[7]"><input type="text" ng-model="arr[8]"><input type="text" ng-model="arr[9]"><input type="text" ng-model="arr[10]"><input type="text" ng-model="arr[11]"><input type="text" ng-model="arr[12]"><input type="text" ng-model="arr[13]"><input type="text" ng-model="arr[14]"><input type="text" ng-model="arr[15]"><input type="text" ng-model="arr[16]"><input type="text" ng-model="arr[17]"><input type="text" ng-model="arr[18]"><input type="text" ng-model="arr[19]">
+    </div>
+    <hr>
+    <div class="charts">
+      <div class="barchart">
+        <h3>Bar Chart</h3>
+        <div class="bars"></div>
+      </div>
+      <div class="bubblypiechart">
+        <h3>Bubbly Pie Chart</h3>
+        <div class="bubblypies"></div>
+      </div>
+      <div class="donutpiechart">
+        <h3>Donut Pie Chart</h3>
+        <div class="donutpies"></div>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="./d3.js"></script>
+    <script src="./app.js" type="text/javascript"></script>
+    <script src="./mainCtrl.js" type="text/javascript"></script>
+  </body>
+</html>
