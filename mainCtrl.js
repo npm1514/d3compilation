@@ -21,9 +21,8 @@ angular.module("d3compilation")
       });
 
   var updatebars = function(){
-      var newarr = [];
       for (var i = 0; i < $scope.arr.length; i++) {
-          newarr.push(parseInt($scope.arr[i]));
+          $scope.arr[i] = parseInt($scope.arr[i]);
       }
       d3.select('.bars')
           .selectAll('.bar')
@@ -31,7 +30,10 @@ angular.module("d3compilation")
           .transition()
           .duration('500')
           .style("width", function(d){
-              return (d/(d3.max(newarr)))*276 + "px";
+            if (d === 0){
+              return 0;
+            }
+              return (d/(d3.max($scope.arr)))*276 + "px";
           });
   };
   updatebars();
@@ -110,7 +112,7 @@ angular.module("d3compilation")
     .attr("d", donutarc);
   }
 
-  
+
 
 
 
