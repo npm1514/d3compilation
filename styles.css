@@ -42,7 +42,20 @@ div {
   margin: 10px;
 }
 
+.circlechart {
+  width: 276px;
+  display: inline-block;
+  margin: 10px;
+}
+
 .bars, .bubblypies, .donutpies {
+  width: 276px;
+  height: 276px;
+  border: 2px solid #8d8d8d;
+  padding: 10px;
+}
+
+.circles {
   width: 276px;
   height: 276px;
   border: 2px solid #8d8d8d;
@@ -52,7 +65,3 @@ div {
 .bar {
   width: 20px;
 }
-
-/*.arc path {
-  stroke: #fff;
-}*/
