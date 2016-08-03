@@ -39,8 +39,7 @@ angular.module("d3compilation")
           .transition()
           .duration('500')
           .attr("r", function(d){
-            console.log(d);
-            return d.number/4;
+            return d.number/max*276/4;
           });
   };
   updatecircles();
