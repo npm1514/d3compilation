@@ -7,6 +7,8 @@ angular.module("d3compilation")
       width     = 276,
       barwidth  = 20;
 
+  var color = d3.scale.category10();
+
   var yScale = d3.scale
       .ordinal()
       .domain(d3.range(0,$scope.arr.length))
@@ -25,17 +27,16 @@ angular.module("d3compilation")
       .attr("class", "bar")
       .attr("x", 0)
       .attr("y", function(d, i){
-        return yScale(i)
+        return yScale(i);
       })
       .attr("height", yScale.rangeBand())
 
       .attr('width', function(d){
           return 0;
       })
-      .style("fill", function(d){
-          return d3.hsl(d.color.h,d.color.s,d.color.l)
-      })
-      ;
+      .style("fill", function(d, i) {
+          return color(i % 20);
+      });
 
   var updatebars = function(){
 
@@ -52,14 +53,13 @@ angular.module("d3compilation")
           .domain([0,max])
           .range([0,width]);
 
-
       d3.select('.bars svg g')
           .selectAll('.bar')
           .data($scope.arr)
           .transition()
           .duration('500')
-          .attr("fill", function(d){
-              d3.hsl(d.color.h,d.color.s,d.color.l)
+          .style("fill", function(d, i) {
+              return color(i % 20);
           })
           .style("width", function(d){
             if (d.number === 0){

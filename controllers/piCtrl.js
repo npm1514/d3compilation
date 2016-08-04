@@ -16,7 +16,8 @@ angular.module("d3compilation")
       .value(function(d) {
           return d.number;
       });
-
+      
+  var color = d3.scale.category10();
 
   var donutarc = d3.svg
       .arc()
@@ -31,8 +32,8 @@ angular.module("d3compilation")
       .enter()
       .append("path")
       .attr("d", donutarc)
-      .style("fill", function(d) {
-          return d3.hsl(d.data.color.h, d.data.color.s,d.data.color.l);
+      .style("fill", function(d, i) {
+          return color(i % 20);
       });
 
   function makedonutpie (){

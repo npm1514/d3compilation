@@ -36,32 +36,15 @@ div {
   align-content: space-around;
 }
 
-.barchart, .bubblypiechart, .donutpiechart {
+.barchart, .bubblypiechart, .donutpiechart, .circlechart, .forcecirclechart {
   width: 300px;
   display: inline-block;
   margin: 10px;
 }
 
-.circlechart {
-  width: 276px;
-  display: inline-block;
-  margin: 10px;
-}
-
-.bars, .bubblypies, .donutpies {
+.bars, .bubblypies, .donutpies, .circles, .forcecircles{
   width: 276px;
   height: 276px;
   border: 2px solid #8d8d8d;
   padding: 10px;
-}
-
-.circles {
-  width: 276px;
-  height: 276px;
-  border: 2px solid #8d8d8d;
-  padding: 10px;
-}
-
-.bar {
-  width: 20px;
 }

@@ -9,7 +9,8 @@ angular.module("d3compilation")
       .attr("height", 276) //size of pie chart svg platform
       .append("g")//appends shapes together
       .attr("transform", "translate(" + 138 + "," + 138 + ")"); //moves pie chart to center of div
-
+  var color = d3.scale.category10();
+  
   var pie = d3.layout.pie()
       .sort(null)
       .value(function(d) {
@@ -28,8 +29,8 @@ angular.module("d3compilation")
       .enter()
       .append("path")
       .attr("d", arc)
-      .style("fill", function(d) {
-          return d3.hsl(d.data.color.h,d.data.color.s,d.data.color.l);
+      .style("fill", function(d, i) {
+          return color(i % 20);
       });
 
   function makebubblypie (){

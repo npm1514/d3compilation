@@ -8,26 +8,28 @@ angular.module("d3compilation")
       .attr("height", 276) //size of pie chart svg platform
       .append("g");
 
+  var color = d3.scale.category10();
+
   svg.selectAll('g')
       .data($scope.arr)
       .enter()
       .append('circle')
       .attr("class", "circle")
       .attr("cx", function(d){
-        return Math.random()*276;
+        return Math.random()*236 + 20;
       })
       .attr("cy", function(d){
-        return Math.random()*276;
+        return Math.random()*236 + 20;
       })
       .attr("r", function(d){
         return 0;
       })
-      .attr("fill", function(d){
-        return d3.hsl(d.color.h, d.color.s, d.color.l);
+      .style("fill", function(d, i) {
+          return color(i % 20);
       });
 
   var updatecircles = function(){
-    var max = 0;
+      var max = 0;
       for (var i = 0; i < $scope.arr.length; i++) {
           $scope.arr[i].number = parseInt($scope.arr[i].number);
           if($scope.arr[i].number > max){
@@ -39,7 +41,7 @@ angular.module("d3compilation")
           .transition()
           .duration('500')
           .attr("r", function(d){
-            return d.number/max*276/4;
+            return d.number/max*276/8;
           });
   };
   updatecircles();
