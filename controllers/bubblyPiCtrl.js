@@ -8,13 +8,14 @@ angular.module("d3compilation")
       .attr("width", 276) //size of pie chart svg platform
       .attr("height", 276) //size of pie chart svg platform
       .append("g")//appends shapes together
-      .attr("transform", "translate(" + 138 + "," + 138 + ")"); //moves pie chart to center of div
+      .attr("transform", "translate(" + 138 + "," + 138 + ")");
+       //moves pie chart to center of div
   var color = d3.scale.category10();
-  
+
   var pie = d3.layout.pie()
       .sort(null)
       .value(function(d) {
-          return d.number;
+          return d;
       });
 
   var arc = d3.svg
@@ -25,7 +26,7 @@ angular.module("d3compilation")
 
   d3.select(".bubblypies g")
       .selectAll("path")
-      .data(pie($scope.arr))
+      .data(pie($scope.arr.slice(1)))
       .enter()
       .append("path")
       .attr("d", arc)
@@ -33,10 +34,21 @@ angular.module("d3compilation")
           return color(i % 20);
       });
 
+  d3.select(".bubblypies svg")
+      .on('click', function(){
+        d3.select(this)
+        .style({
+          "transform": "rotateZ(3600deg)",
+          "transition-duration": "55s"
+        })
+      });
+
   function makebubblypie (){
+
+
     d3.select(".bubblypies g")
     .selectAll("path")
-    .data(pie($scope.arr))
+    .data(pie($scope.arr.slice(1)))
     .transition()
     .duration(500)
     .attr("d", arc);

@@ -15,9 +15,9 @@ angular.module("d3compilation")
       .rangeBands([0,height]);
 
   var svg = d3.select(".bars")
-      .append("svg") //creates platform for pie chart
-      .attr("width", width) //size of pie chart svg platform
-      .attr("height", height) //size of pie chart svg platform
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
       .append("g");
 
   svg.selectAll('rect')
@@ -36,36 +36,50 @@ angular.module("d3compilation")
       })
       .style("fill", function(d, i) {
           return color(i % 20);
+      })
+      .style("transform", function(d){
+        return "translateX(0px)translateY(0px)rotateZ(0deg)";
+      });
+
+  d3.select(".bars svg")
+      .on('click', function(){
+        d3.select(".bars")
+            .selectAll('.bar')
+            .data($scope.arr.slice(1))
+            .transition()
+            .duration(500)
+            .style("transform", function(d){
+              var sign = ["-", "+"];
+              var px = Math.round(Math.random());
+              var py = Math.round(Math.random());
+              var pz = Math.round(Math.random());
+              var x = sign[px] + Math.random()*width/2;
+              var y = sign[py] + Math.random()*height/3;
+              var z = sign[pz] + Math.random()*45;
+              return "translateX(" + x + "px)translateY(" + y + "px)rotateZ(" + z + "deg)";
+            });
       });
 
   var updatebars = function(){
 
-      var max = 0;
-      for (var i = 0; i < $scope.arr.length; i++) {
-          $scope.arr[i].number = parseInt($scope.arr[i].number);
-          if($scope.arr[i].number > max){
-            max = $scope.arr[i].number;
-          }
-      }
-
       var xScale = d3.scale
           .linear()
-          .domain([0,max])
+          .domain([0,d3.max($scope.arr)])
           .range([0,width]);
 
       d3.select('.bars svg g')
           .selectAll('.bar')
-          .data($scope.arr)
+          .data($scope.arr.slice(1))
           .transition()
-          .duration('500')
+          .duration(500)
           .style("fill", function(d, i) {
               return color(i % 20);
           })
           .style("width", function(d){
-            if (d.number === 0){
+            if (d === 0){
               return 0;
             }
-            return xScale(d.number);
+            return xScale(d);
           });
   };
   updatebars();

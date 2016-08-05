@@ -11,7 +11,26 @@
     <hr>
     <h3>These are some input boxes. Go ahead and type in a bunch of numbers.</h3>
     <div class="inputcontainer">
-      <input type="text" ng-model="arr[0].number"><input type="text" ng-model="arr[1].number"><input type="text" ng-model="arr[2].number"><input type="text" ng-model="arr[3].number"><input type="text" ng-model="arr[4].number"><input type="text" ng-model="arr[5].number"><input type="text" ng-model="arr[6].number"><input type="text" ng-model="arr[7].number"><input type="text" ng-model="arr[8].number"><input type="text" ng-model="arr[9].number"><input type="text" ng-model="arr[10].number"><input type="text" ng-model="arr[11].number"><input type="text" ng-model="arr[12].number"><input type="text" ng-model="arr[13].number"><input type="text" ng-model="arr[14].number"><input type="text" ng-model="arr[15].number"><input type="text" ng-model="arr[16].number"><input type="text" ng-model="arr[17].number"><input type="text" ng-model="arr[18].number"><input type="text" ng-model="arr[19].number">
+        <input type="text" ng-model="arr[20]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[1]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[2]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[3]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[4]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[5]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[6]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[7]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[8]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[9]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[10]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[11]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[12]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[13]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[14]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[15]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[16]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[17]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[18]" ng-change="updateforcecircles()">
+        <input type="text" ng-model="arr[19]" ng-change="updateforcecircles()">
     </div>
     <hr>
     <div class="charts">
@@ -32,7 +51,7 @@
         <div class="circles"></div>
       </div>
       <div class="forcecirclechart" ng-controller="forceCircleCtrl">
-        <h3>Force Circle Chart</h3>
+        <h3 ng-click="updateforcecircles()">Force Circle Chart</h3>
         <div class="forcecircles"></div>
       </div>
 
